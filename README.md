@@ -17,3 +17,7 @@ Click the checkbox and From the drop down menu at the top, Click "Access Notes",
 Remember :
 No one else can access your notes without the password and this password is saved nowhere else ! 
 
+
+Demo : 
+
+
