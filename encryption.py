@@ -52,10 +52,11 @@ def decrypt_file(file_path,password):
         dec_text = fernet.decrypt(enc_text)
         print("correct password")
 
-        with open(file_path, 'wb') as f:
-            f.write(dec_text)
+       # with open(file_path, 'wb') as f:
+        #    f.write(dec_text)
+        return dec_text
     except InvalidToken:
-        return 0
         print("Incorrect Password")
-    except FileNotFoundError:
-        print("The file seems to be missing !")
+        return 0
+
+
