@@ -131,8 +131,8 @@ class PassDialog(QtWidgets.QDialog):
            self.edit.clear()
            pas_dialog = QtWidgets.QDialog(self)
            pas_layout = QtWidgets.QVBoxLayout(pas_dialog)
-           print(passwords)
-           password = QtWidgets.QLabel(str(passwords))
+           print(passwords.decode())
+           password = QtWidgets.QLabel(passwords.decode())
            pas_layout.addWidget(password)
            pas_dialog.exec()
 
