@@ -25,13 +25,13 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addWidget(self.box)
         self.box.hide()
 
-        self.lineedit = QtWidgets.QLineEdit()
-
+        self.lineedit = QtWidgets.QTextEdit()
+        self.lineedit.setFixedHeight(40)
         self.lineedit.setPlaceholderText("Use Me !")
         self.used = QtWidgets.QPushButton("save it !!!")
 
 
-
+        self.lineedit.textChanged.connect(self.expand_height)
 
         layout.addWidget(self.lineedit)
         layout.addWidget(self.used)
@@ -62,12 +62,14 @@ class MainWindow(QtWidgets.QMainWindow):
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)
         self.box.currentTextChanged.connect(self.opt_selected)
+    def expand_height(self):
+        self.lineedit.setFixedHeight(self.lineedit.document().lineCount() * 40)
 
     def checkbox_state(self,state):
         self.checkbox.setEnabled(False)
         self.box.show()
     def on_save_data(self):
-        text = self.lineedit.text() #pass password before ,
+        text = self.lineedit.toPlainText() #pass password before ,
         if text:
             dt = datetime.datetime.now()
             line = f"{dt.strftime("%d %b, %Y %H:%M:%S")} {text}"
