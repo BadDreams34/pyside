@@ -25,8 +25,9 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addWidget(self.box)
         self.box.hide()
 
-        self.lineedit = QtWidgets.QTextEdit()
-        self.lineedit.setFixedHeight(40)
+        self.lineedit = QtWidgets.QPlainTextEdit()
+        self.lineedit.setFixedHeight(24)
+        self.lineedit.setFixedHeight(100)
         self.lineedit.setPlaceholderText("Use Me !")
         self.used = QtWidgets.QPushButton("save it !!!")
 
@@ -63,7 +64,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setCentralWidget(central_widget)
         self.box.currentTextChanged.connect(self.opt_selected)
     def expand_height(self):
-        self.lineedit.setFixedHeight(self.lineedit.document().lineCount() * 40)
+        self.lineedit.setFixedHeight(self.lineedit.document().lineCount() * 24)
 
     def checkbox_state(self,state):
         self.checkbox.setEnabled(False)
